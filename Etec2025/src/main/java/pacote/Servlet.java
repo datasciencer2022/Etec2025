@@ -33,11 +33,7 @@ public class Servlet extends HttpServlet {
 		String[] doc2Temp = request.getParameterValues("doc2[]");
 		
 		String doc2 = "";
-		
-		for(String x: doc2Temp) {
-			doc2 = doc2 + x + " , ";
-		}
-		
+			
 		for(int i=0;i<doc2Temp.length;i++) {
 			doc2 = doc2 + doc2Temp[i] + " , ";
 		}
