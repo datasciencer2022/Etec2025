@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+table{
+   border: 2px solid;
+    width: 90% !important; /*Importante manter o !important rs */
+    margin: auto;
+}
+
+.mensagem {
+	font-family: "Apple Chancery, cursive";
+	color: red;
+}
+
+body{ 
+	margin:0 auto;
+}
