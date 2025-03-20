@@ -11,22 +11,12 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>Exemplo</display-name>
-    <servlet-name>Exemplo</servlet-name>
-    <servlet-class>pacote.Exemplo</servlet-class>
+    <display-name>Servlet</display-name>
+    <servlet-name>Servlet</servlet-name>
+    <servlet-class>pacote.Servlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Exemplo</servlet-name>
-    <url-pattern>/exemplo.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Imc</display-name>
-    <servlet-name>Imc</servlet-name>
-    <servlet-class>pacote.Imc</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Imc</servlet-name>
-    <url-pattern>/imc.do</url-pattern>
+    <servlet-name>Servlet</servlet-name>
+    <url-pattern>/servlet.do</url-pattern>
   </servlet-mapping>
 </web-app>

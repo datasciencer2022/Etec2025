@@ -12,7 +12,7 @@
 	<h1 style="text-align: center">
 		Solicitação de Documentos
 	</h1>
-	<form method="post" action="./exemplo.do"
+	<form method="post" action="./servlet.do"
 	     onsubmit="return checarNumDocs()">
 	  <table>
 		<tr>
