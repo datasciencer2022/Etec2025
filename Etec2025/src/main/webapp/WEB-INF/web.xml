@@ -19,4 +19,14 @@
     <servlet-name>Servlet</servlet-name>
     <url-pattern>/servlet.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Escolher3</display-name>
+    <servlet-name>Escolher3</servlet-name>
+    <servlet-class>pacote.Escolher3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Escolher3</servlet-name>
+    <url-pattern>/escolher3</url-pattern>
+  </servlet-mapping>
 </web-app>
