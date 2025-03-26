@@ -36,12 +36,17 @@ public class Escolher3 extends HttpServlet {
 			nums[i] = Integer.parseInt(numsTemp2[i]);
 		}
 		
+		for (int i=0;i<nums.length;i++) {
+			System.out.println(nums[i]);
+		}
+		
 		int tresMaiores[] = calc3Maiores(nums);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("tresMaiores", tresMaiores);
 		
 		response.sendRedirect("resp2.jsp");
+		
 	}
 
 	private int[] calc3Maiores(int[] nums) {
@@ -54,10 +59,6 @@ public class Escolher3 extends HttpServlet {
 			if (i == 2) break;
 		}
 		
-		System.out.println(
-				resp[0] + "\t"+
-				resp[1] + "\t"+
-				resp[2]);
 		return resp;
 	}
 
