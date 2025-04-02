@@ -29,4 +29,14 @@
     <servlet-name>Escolher3</servlet-name>
     <url-pattern>/escolher3</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CalculoDias</display-name>
+    <servlet-name>CalculoDias</servlet-name>
+    <servlet-class>pacote.CalculoDias</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CalculoDias</servlet-name>
+    <url-pattern>/calculoDias</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Servlet implementation class Escolher3
@@ -49,16 +50,15 @@ public class Escolher3 extends HttpServlet {
 		
 	}
 
+	
+	// https://github.com/datasciencer2022/Etec2025
+	
 	private int[] calc3Maiores(int[] nums) {
 		int resp[] = new int[3];
-		
-		for (int i=0; i< nums.length; i++) {
-			//aqui estou pegando só os 3 primeiros
-			//vocês terão que pegar os 3 maiores
-			resp[i] = nums[i];
-			if (i == 2) break;
-		}
-		
+		Arrays.sort(nums);	
+		resp[0] = nums[7];
+		resp[1] = nums[8];
+		resp[2] = nums[9];
 		return resp;
 	}
 
