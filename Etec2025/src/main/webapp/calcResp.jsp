@@ -14,7 +14,7 @@ Date dtFim = java.sql.Date.valueOf(dtFimTmp);
 int resp = (int) session.getAttribute("resp");
 
 SimpleDateFormat sdf = 
-new SimpleDateFormat("dd/MM/yy");
+new SimpleDateFormat("dd/MM/yyyy");
 %>
 
 

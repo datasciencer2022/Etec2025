@@ -36,6 +36,9 @@ public class CalculoDias extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		
+	
 		LocalDate dtIni = LocalDate.parse(request.getParameter("dtIni"));
 		LocalDate dtFim = LocalDate.parse(request.getParameter("dtFim"));
 		
@@ -43,10 +46,10 @@ public class CalculoDias extends HttpServlet {
 		int resp = objeto.calcDif(dtIni, dtFim);
 		
 		
-		HttpSession session = request.getSession();
 		session.setAttribute("dtIni", dtIni);
 		session.setAttribute("dtFim", dtFim);
-		session.setAttribute("resp", resp);
+		session.setAttribute("resp", resp);	
+	
 		
 		response.sendRedirect("./calcResp.jsp");
 		
