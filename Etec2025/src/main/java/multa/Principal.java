@@ -8,8 +8,7 @@ public class Principal {
 				"Valor original: " + multa.getValorCompra());
 		System.out.println(
 				"Data de vencimento: " + multa.getDataVencto());
-		multa.setValorMulta(multa.calcularMulta());
 		System.out.println(
-				"Valor a pagar: " + (multa.getValorCompra() + valorMulta));
+				"Valor a pagar: " + (multa.getValorCompra() + multa.calcularMulta()));
 	}
 }
