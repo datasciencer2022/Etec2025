@@ -1,13 +1,15 @@
 package pacote;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class DifDatas {
-
-	public int calcDif(LocalDate dtIni, LocalDate dtFim) {
-		
-		return 0;
+	//calcular quantos dias de diferença
+	public long calcDif(LocalDate dtIni,
+			LocalDate dtFim) {
+		long resp = 
+			ChronoUnit.DAYS.between(dtIni, dtFim);
+		// aqui vai o código
+		return resp;
 	}
-
-	
 }

@@ -1,3 +1,4 @@
+<%@page import="pacote.UtilsData"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.sql.Date"%>
@@ -5,16 +6,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-LocalDate dtIniTmp = (LocalDate) session.getAttribute("dtIni");
-LocalDate dtFimTmp = (LocalDate) session.getAttribute("dtFim");
-
-Date dtIni = java.sql.Date.valueOf(dtIniTmp);
-Date dtFim = java.sql.Date.valueOf(dtFimTmp);
+LocalDate dtIni = (LocalDate) session.getAttribute("dtIni");
+LocalDate dtFim = (LocalDate) session.getAttribute("dtFim");
 
 int resp = (int) session.getAttribute("resp");
-
-SimpleDateFormat sdf = 
-new SimpleDateFormat("dd/MM/yyyy");
+UtilsData utils = new UtilsData();
 %>
 
 
@@ -42,7 +38,7 @@ new SimpleDateFormat("dd/MM/yyyy");
 			Data Início:
 			</td>
 			<td>
-			<%= sdf.format(dtIni) %>
+			<%= utils.formataLocalDate(dtIni) %>
 			</td>
 		</tr>
 		<tr>
@@ -50,7 +46,7 @@ new SimpleDateFormat("dd/MM/yyyy");
 			Data Fim:
 			</td>
 			<td>
-			<%= sdf.format(dtFim) %>
+			<%= utils.formataLocalDate(dtFim) %>
 			</td>
 		</tr>
 		<tr>

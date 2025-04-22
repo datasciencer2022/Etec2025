@@ -43,7 +43,7 @@ public class CalculoDias extends HttpServlet {
 		LocalDate dtFim = LocalDate.parse(request.getParameter("dtFim"));
 		
 		DifDatas objeto = new DifDatas();
-		int resp = objeto.calcDif(dtIni, dtFim);
+		long resp = objeto.calcDif(dtIni, dtFim);
 		
 		
 		session.setAttribute("dtIni", dtIni);
