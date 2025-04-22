@@ -10,6 +10,7 @@ public class Multa {
 	private double valorCompra;
 	private LocalDate dtVenc;
 	private double valorMulta;
+	private double jurosDia;
 	
 	public void receberDados() {
 		valorCompra = Double.parseDouble(
@@ -21,6 +22,10 @@ public class Multa {
 				.showInputDialog("Digite a data do vencimento");
 		
 		dtVenc = formataData(dtVencTmp);
+		jurosDia = Double.parseDouble(
+				JOptionPane
+				.showInputDialog("Digite o valor do juros ao dia")
+			);
 	}
 
 	public double getValorCompra() {
@@ -51,6 +56,16 @@ public class Multa {
 
 	public void setValorMulta(double valorMulta) {
 		this.valorMulta = valorMulta;
+	}
+
+	
+	
+	public double getJurosDia() {
+		return jurosDia;
+	}
+
+	public void setJurosDia(double jurosDia) {
+		this.jurosDia = jurosDia;
 	}
 
 	public LocalDate formataData (String dtVencTmp) {
