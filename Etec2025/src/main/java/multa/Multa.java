@@ -70,7 +70,7 @@ public class Multa {
 
 	public LocalDate formataData (String dtVencTmp) {
 		String[] partes = dtVencTmp.split("/");
-		int[] partes2 = new int[3];
+		int[] partes2 = new int[partes.length];
 		for (int i=0; i< partes.length;i++) {
 			partes2[i] = Integer.parseInt(partes[i]);
 		}
@@ -78,9 +78,16 @@ public class Multa {
 	}
 
 	public double calcularMulta() {
-		// calcular numero de dias em atraso
+		// obter a data atual
+		LocalDate hoje = LocalDate.now();
 		
-		// multiplicar dias por juros
+		// acertar os juros
+		jurosDia = jurosDia / 100;
+		
+		// para calcular a multa
+		// multiplicar (juros simples)
+		// quantDias * juros * valorCompra
+		
 		return 0;
 	}
 	
