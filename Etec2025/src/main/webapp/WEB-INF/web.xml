@@ -39,4 +39,14 @@
     <servlet-name>CalculoDias</servlet-name>
     <url-pattern>/calculoDias</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Controle</display-name>
+    <servlet-name>Controle</servlet-name>
+    <servlet-class>pacote.Controle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Controle</servlet-name>
+    <url-pattern>/controle</url-pattern>
+  </servlet-mapping>
 </web-app>
