@@ -1,7 +1,9 @@
 Quando quiserem autenticar contas, use:
 ```java
-	public boolean autenticar (Conta conta) {
+	public boolean autenticar (int idConta) {
 		boolean resp = false;
+		ContaDAO dao = new ContaDAO();
+		Conta conta = dao.getContaById(idConta);
 		
 		// autenticação acontece aqui
 		
