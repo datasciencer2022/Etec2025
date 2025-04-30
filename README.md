@@ -1,13 +1,6 @@
 Exemplo do PlantUML
 ```plantuml
-
-@startuml
-class "This is my class" as class1
-class class2 as "It works this way too"
-
-class2 *-- "foo/dummy" : use
-@enduml
-
+A -> B: abc
 ```
 
 
