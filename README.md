@@ -1,5 +1,5 @@
 Exemplo do PlantUML
-```plantUml
+```plantuml
 
 @startuml
 class Cliente as Conta
