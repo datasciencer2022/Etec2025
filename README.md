@@ -1,3 +1,13 @@
+Exemplo do PlantUML
+```plantUml
+
+@startuml
+class Cliente as Conta
+@enduml
+
+```
+
+
 Exemplo do diagrama do Mermaid
 
 ```mermaid
