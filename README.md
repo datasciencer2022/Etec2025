@@ -1,8 +1,10 @@
-Exemplo do PlantUML
-```plantuml
-A -> B: abc
-```
+Exemplo de Código Java
+```java
+public double verSaldo(){
+    return this.saldo;
+}
 
+```
 
 Exemplo do diagrama do Mermaid
 
