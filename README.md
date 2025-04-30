@@ -2,7 +2,10 @@ Exemplo do PlantUML
 ```plantuml
 
 @startuml
-class Cliente as Conta
+class "This is my class" as class1
+class class2 as "It works this way too"
+
+class2 *-- "foo/dummy" : use
 @enduml
 
 ```
