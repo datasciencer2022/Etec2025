@@ -34,7 +34,15 @@ public class Controle extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+	HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
+		
+		
+		
+		
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		
@@ -42,9 +50,14 @@ public class Controle extends HttpServlet {
 		
 		session.setAttribute("nome", nome);
 		session.setAttribute("cpf", cpf);
-		
 		response.sendRedirect("confcadastro.jsp");
 	
+		
+		
+		
+		
+		
+		
 	}
 
 }

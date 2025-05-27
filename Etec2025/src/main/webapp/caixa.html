@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Banco ETEC</title>
+	<style>
+		.conteudo{
+			display: flex; 
+			flex-direction: column; 
+			align-items: center; 
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="conteudo">
+		<h1>Saque em Conta Corrente</h1>
+		
+		<table border="1">
+			<tr>
+				<td>Notas</td>
+				<td>Quantidade</td>
+			</tr>
+			<tr>
+				<td>R$ 1,00</td>
+				<td align="center">3</td>
+			</tr>
+			<tr>
+				<td>R$ 2,00</td>
+				<td align="center">4</td>
+			</tr>
+			<tr>
+				<td>R$ 5,00</td>
+				<td align="center">4</td>
+			</tr>
+			<tr>
+				<td>R$ 10,00</td>
+				<td align="center">3</td>
+			</tr>
+			<tr>
+				<td>R$ 50,00</td>
+				<td align="center">3</td>
+			</tr>
+			<tr>
+				<td>R$ 100,00</td>
+				<td align="center">2</td>
+			</tr>
+		</table>
+		<br><br><br>
+		<form method="post" action="./caixa.do">
+			<table>
+				<tr>
+					<td>Valor: </td>
+					<td><input type="text" name="valor"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="Enviar"></td>
+				</tr>
+			
+			</table>
+		</form>
+	</div>
+</body>
+</html>
