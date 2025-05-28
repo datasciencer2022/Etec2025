@@ -9,9 +9,14 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * Servlet implementation class Caixa
@@ -42,8 +47,15 @@ public class Caixa extends HttpServlet {
 		mapa.put(50, 3);
 		mapa.put(100, 2);
 		
+		List<Integer> listaNotas = new ArrayList<Integer>();
 		
-		Map<Integer, Integer> resp = calcula(mapa, valor);
+		for (int chave: mapa.keySet()) {
+			listaNotas.add(chave);
+		}
+		
+		Collections.sort(listaNotas, Collections.reverseOrder());
+		
+		Map<Integer, Integer> resp = calcula(listaNotas, valor);
 		
 		HttpSession sessao = request.getSession();
 		
@@ -63,10 +75,25 @@ public class Caixa extends HttpServlet {
 	
 	}
 
-	private Map<Integer, Integer> calcula(Map<Integer, Integer> mapa, double valor) {
+	// neste método há um erro: CONSERTAR !!
+	private Map<Integer, Integer> calcula(List<Integer> listaNotas, double valor) {
+		Map<Integer, Integer> resp = new HashMap<Integer, Integer>();
+		double teste = 0;
 		
-		// aqui voces vao trabalhar
-		return mapa;
+		for(int nota: listaNotas) {
+			int contNotas = 0;
+			teste = (valor - nota);
+			while (teste > 0) {
+				System.out.println("estou tirando "+nota + " de "+ valor);
+				System.out.println("vai usar nota(s) de "+ nota);
+				contNotas++;	
+				teste = (valor - nota);
+				valor = valor - nota;
+			}
+			resp.put(nota, contNotas);
+		}
+		
+		return resp;
 	}
 
 }
