@@ -10,6 +10,11 @@
 	if (sessao.getAttribute("resp") != null){
 		resp = (Map<Integer,Integer>) sessao.getAttribute("resp");
 	}
+	
+	String valorStr = "";
+	if (sessao.getAttribute("valorStr") != null){
+		valorStr = (String) sessao.getAttribute("valorStr");
+	}
 
 %>
 
@@ -28,6 +33,7 @@
 </head>
 <body>
 	<div class="conteudo">
+	<h1> <%= valorStr %> divididos em:</h1>
 	<%if (resp == null){ %>
 		<h1>Não foi possível calcular</h1>
 	<%} else {

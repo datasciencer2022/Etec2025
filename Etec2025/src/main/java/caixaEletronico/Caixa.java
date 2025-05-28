@@ -8,7 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -45,7 +47,16 @@ public class Caixa extends HttpServlet {
 		
 		HttpSession sessao = request.getSession();
 		
+		
+		// Get the currency instance
+        NumberFormat nF
+            = NumberFormat
+                  .getCurrencyInstance();
+        
+        String valorStr = nF.format(valor);
+		
 		sessao.setAttribute("resp", resp);
+		sessao.setAttribute("valorStr", valorStr);
 		
 		response.sendRedirect("./caixaResp.jsp");
 		
