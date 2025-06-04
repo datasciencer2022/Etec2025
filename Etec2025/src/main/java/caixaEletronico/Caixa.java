@@ -55,6 +55,8 @@ public class Caixa extends HttpServlet {
 		
 		Collections.sort(listaNotas, Collections.reverseOrder());
 		
+		//mostrarNotas(listaNotas);
+	
 		Map<Integer, Integer> resp = calcula(listaNotas, valor);
 		
 		HttpSession sessao = request.getSession();
@@ -71,23 +73,29 @@ public class Caixa extends HttpServlet {
 		sessao.setAttribute("valorStr", valorStr);
 		
 		response.sendRedirect("./caixaResp.jsp");
-		
 	
+	}
+
+	private void mostrarNotas(List<Integer> listaNotas) {
+		System.out.println("quais são as notas disponíveis:");
+		listaNotas.forEach(n -> System.out.print(n+"\t"));
+		System.out.println();
 	}
 
 	// neste método há um erro: CONSERTAR !!
 	private Map<Integer, Integer> calcula(List<Integer> listaNotas, double valor) {
 		Map<Integer, Integer> resp = new HashMap<Integer, Integer>();
-		double teste = 0;
 		
 		for(int nota: listaNotas) {
 			int contNotas = 0;
-			teste = (valor - nota);
-			while (teste > 0) {
-				System.out.println("estou tirando "+nota + " de "+ valor);
-				System.out.println("vai usar nota(s) de "+ nota);
+			if (valor / nota < 1) {
+				continue;
+			}
+			valor = (valor - nota);
+			while (valor >= 0) {
+				//System.out.println("estou tirando "+nota + " de "+ valor);
+				//System.out.println("vai usar nota(s) de "+ nota);
 				contNotas++;	
-				teste = (valor - nota);
 				valor = valor - nota;
 			}
 			resp.put(nota, contNotas);
