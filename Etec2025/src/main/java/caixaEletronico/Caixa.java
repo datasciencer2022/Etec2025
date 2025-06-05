@@ -44,6 +44,7 @@ public class Caixa extends HttpServlet {
 		mapa.put(2, 4);
 		mapa.put(5, 4);
 		mapa.put(10, 3);
+		mapa.put(20, 4);
 		mapa.put(50, 3);
 		mapa.put(100, 2);
 		
