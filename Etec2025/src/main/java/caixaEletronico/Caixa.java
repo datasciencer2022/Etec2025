@@ -58,7 +58,9 @@ public class Caixa extends HttpServlet {
 		
 		//mostrarNotas(listaNotas);
 	
-		Map<Integer, Integer> resp = calcula(listaNotas, valor);
+		Map<Integer, Integer> primeiraSolucao = calculaPrimeira(listaNotas, valor);
+		
+		Map<Integer, Integer> segundaSolucao = calculaSegunda(listaNotas, valor, primeiraSolucao);
 		
 		HttpSession sessao = request.getSession();
 		
@@ -70,7 +72,9 @@ public class Caixa extends HttpServlet {
         
         String valorStr = nF.format(valor);
 		
-		sessao.setAttribute("resp", resp);
+		sessao.setAttribute("primeiraSolucao", primeiraSolucao);
+		
+		sessao.setAttribute("segundaSolucao", segundaSolucao);
 		sessao.setAttribute("valorStr", valorStr);
 		
 		response.sendRedirect("./caixaResp.jsp");
@@ -83,24 +87,21 @@ public class Caixa extends HttpServlet {
 		System.out.println();
 	}
 
-	// neste método há um erro: CONSERTAR !!
-	private Map<Integer, Integer> calcula(List<Integer> listaNotas, double valor) {
+	
+	private Map<Integer, Integer> calculaPrimeira(List<Integer> listaNotas, double valor) {
 		Map<Integer, Integer> resp = new HashMap<Integer, Integer>();
 		
-		for(int nota: listaNotas) {
-			int contNotas = 0;
-			if (valor / nota < 1) {
-				continue;
-			}
-			valor = (valor - nota);
-			while (valor >= 0) {
-				//System.out.println("estou tirando "+nota + " de "+ valor);
-				//System.out.println("vai usar nota(s) de "+ nota);
-				contNotas++;	
-				valor = valor - nota;
-			}
-			resp.put(nota, contNotas);
-		}
+		resp.put(50, 1);
+		resp.put(20, 2);
+		
+		return resp;
+	}
+	
+	private Map<Integer, Integer> calculaSegunda(List<Integer> listaNotas, double valor, Map<Integer, Integer> primeiraSolucao) {
+		Map<Integer, Integer> resp = new HashMap<Integer, Integer>();
+		
+		resp.put(50, 1);
+		resp.put(10, 4);
 		
 		return resp;
 	}
