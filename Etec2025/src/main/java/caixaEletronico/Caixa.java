@@ -21,6 +21,7 @@ import java.util.TreeSet;
 /**
  * Servlet implementation class Caixa
  */
+@WebServlet("/caixa.do")
 public class Caixa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

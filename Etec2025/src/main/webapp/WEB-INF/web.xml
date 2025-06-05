@@ -49,14 +49,5 @@
     <servlet-name>Controle</servlet-name>
     <url-pattern>/controle</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Caixa</display-name>
-    <servlet-name>Caixa</servlet-name>
-    <servlet-class>caixaEletronico.Caixa</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Caixa</servlet-name>
-    <url-pattern>/caixa.do</url-pattern>
-  </servlet-mapping>
+  
 </web-app>
