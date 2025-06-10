@@ -59,9 +59,7 @@ public class Caixa extends HttpServlet {
 		
 		//mostrarNotas(listaNotas);
 	
-		Map<Integer, Integer> primeiraSolucao = calculaPrimeira(listaNotas, valor);
-		
-		Map<Integer, Integer> segundaSolucao = calculaSegunda(listaNotas, valor, primeiraSolucao);
+		Map<Integer, Integer> primeiraSolucao = calcular(listaNotas, valor);
 		
 		HttpSession sessao = request.getSession();
 		
@@ -75,7 +73,6 @@ public class Caixa extends HttpServlet {
 		
 		sessao.setAttribute("primeiraSolucao", primeiraSolucao);
 		
-		sessao.setAttribute("segundaSolucao", segundaSolucao);
 		sessao.setAttribute("valorStr", valorStr);
 		
 		response.sendRedirect("./caixaResp.jsp");
@@ -89,20 +86,11 @@ public class Caixa extends HttpServlet {
 	}
 
 	
-	private Map<Integer, Integer> calculaPrimeira(List<Integer> listaNotas, double valor) {
+	private Map<Integer, Integer> calcular(List<Integer> listaNotas, double valor) {
 		Map<Integer, Integer> resp = new HashMap<Integer, Integer>();
 		
 		resp.put(50, 1);
 		resp.put(20, 2);
-		
-		return resp;
-	}
-	
-	private Map<Integer, Integer> calculaSegunda(List<Integer> listaNotas, double valor, Map<Integer, Integer> primeiraSolucao) {
-		Map<Integer, Integer> resp = new HashMap<Integer, Integer>();
-		
-		resp.put(50, 1);
-		resp.put(10, 4);
 		
 		return resp;
 	}
