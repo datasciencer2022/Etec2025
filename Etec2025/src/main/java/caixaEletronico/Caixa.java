@@ -59,7 +59,7 @@ public class Caixa extends HttpServlet {
 		
 		//mostrarNotas(listaNotas);
 	
-		Map<Integer, Integer> primeiraSolucao = calcular(listaNotas, valor);
+		Map<Integer, Integer> solucao = calcular(mapa, listaNotas, valor);
 		
 		HttpSession sessao = request.getSession();
 		
@@ -71,7 +71,15 @@ public class Caixa extends HttpServlet {
         
         String valorStr = nF.format(valor);
 		
-		sessao.setAttribute("primeiraSolucao", primeiraSolucao);
+        if (solucao == null) {
+        	sessao.setAttribute("message", "Não foi possível");
+        	sessao.setAttribute("solucao", null);
+        }
+        else {
+        	sessao.setAttribute("solucao", solucao);	
+        	sessao.setAttribute("message", "Solução encontrada");
+        }
+		
 		
 		sessao.setAttribute("valorStr", valorStr);
 		
@@ -86,12 +94,36 @@ public class Caixa extends HttpServlet {
 	}
 
 	
-	private Map<Integer, Integer> calcular(List<Integer> listaNotas, double valor) {
+	private Map<Integer, Integer> calcular(Map<Integer,Integer> mapa, List<Integer> listaNotas, double valor) {
+		
 		Map<Integer, Integer> resp = new HashMap<Integer, Integer>();
+		double restDiv = 0;
+		double valorMomento = valor;
+		int quantEstoque = 0;
+		double soma = 0.0;
+		int quantNotas = 0;
+		for(Integer valorNota: listaNotas) {
+			quantEstoque = mapa.get(valorNota);
+			restDiv = valorMomento / valorNota.doubleValue();
+			quantNotas = 0;
+			while (restDiv >= 1) {
+				quantNotas++;
+				valorMomento = valorMomento - valorNota;
+				soma += valorNota;
+				restDiv = valorMomento / valorNota.doubleValue();
+				quantEstoque--;
+				if (quantEstoque == 0) {
+					break;
+				}
+			}
+			if (quantNotas > 0) {
+				resp.put(valorNota, quantNotas);
+			}
+		}
 		
-		resp.put(50, 1);
-		resp.put(20, 2);
-		
+		if (resp.isEmpty() || (soma < valor)) {
+			resp = null;
+		}
 		return resp;
 	}
 

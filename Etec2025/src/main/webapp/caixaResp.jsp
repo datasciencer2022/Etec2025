@@ -6,18 +6,19 @@
 <!DOCTYPE html>
 <%
 	HttpSession sessao = request.getSession();
-	Map<Integer, Integer> primeiraSolucao = null;
-	if (sessao.getAttribute("primeiraSolucao") != null){
-		primeiraSolucao = (Map<Integer,Integer>) sessao.getAttribute("primeiraSolucao");
+	Map<Integer, Integer> solucao = null;
+	if (sessao.getAttribute("solucao") != null){
+		solucao = (Map<Integer,Integer>) sessao.getAttribute("solucao");
 	}
 	
-	Map<Integer, Integer> segundaSolucao = null;
-	if (sessao.getAttribute("segundaSolucao") != null){
-		segundaSolucao = (Map<Integer,Integer>) sessao.getAttribute("segundaSolucao");
-	}
 	String valorStr = "";
 	if (sessao.getAttribute("valorStr") != null){
 		valorStr = (String) sessao.getAttribute("valorStr");
+	}
+	
+	String message = null;
+	if (sessao.getAttribute("message") != null){
+		message = (String) sessao.getAttribute("message");
 	}
 
 %>
@@ -37,56 +38,37 @@
 </head>
 <body>
 	<div class="conteudo">
-	<h1> <%= valorStr %> divididos em:</h1>
-	<%if (primeiraSolucao == null){ %>
-		<h1>Não foi possível calcular</h1>
-	<%} else {
-		SortedSet<Integer> keys = new TreeSet<>(primeiraSolucao.keySet());
-	%>
-		<table border="1">
-			<tr>
-				<th colspan="2">Solução 1</th>
-			</tr>
-			<tr>
-				<th>Nota</th>
-				<th>Quantidade</th>
-			</tr>
-		<%for (int chave: keys){%>	
-			<tr>
-				<td align="center"><%= chave %></td>
-				<td align="center"><%= primeiraSolucao.get(chave) %></td>
-			</tr>
-		<%
-		}
+		<h1> <%= valorStr %> divididos em:</h1>
+		<%if (solucao != null){ 
+			SortedSet<Integer> keys = new TreeSet<>(solucao.keySet());
 		%>
-		</table>
-		
-	<%} %>
-	
-	<br><br><br>
-	
-	<%if (segundaSolucao != null){ 
-			SortedSet<Integer> keys = new TreeSet<>(segundaSolucao.keySet());
-	%>
-		<table border="1">
-			<tr>
-				<th colspan="2">Solução 2</th>
-			</tr>
-			<tr>
-				<th>Nota</th>
-				<th>Quantidade</th>
-			</tr>
-		<%for (int chave: keys){%>	
-			<tr>
-				<td align="center"><%= chave %></td>
-				<td align="center"><%= segundaSolucao.get(chave) %></td>
-			</tr>
-		<%
-		}
-		%>
-		</table>
-		
-	<%} %>
+			<table border="1">
+				<tr>
+					<th colspan="2">Solução</th>
+				</tr>
+				<tr>
+					<th>Nota</th>
+					<th>Quantidade</th>
+				</tr>
+			<%for (int chave: keys){%>	
+				<tr>
+					<td align="center"><%= chave %></td>
+					<td align="center"><%= solucao.get(chave) %></td>
+				</tr>
+			<%
+			}
+			%>
+			</table>
+			
+		<%} %>
 	</div>
+	<br><br>
+	<%if (message != null) { %>
+		<div class="conteudo">
+			<p align="center">
+				<%= message %>
+			</p>
+		</div>
+	<%} %>
 </body>
 </html>
