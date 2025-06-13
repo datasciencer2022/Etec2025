@@ -2,25 +2,17 @@ package modelo;
 
 public class Grupo {
 
-	private int id;
 	private String tema;
+	private boolean podeHoje;
 	
 	public Grupo() {
 		
 	}
 
-	public Grupo(int id, String tema) {
+	public Grupo(String tema, boolean podeHoje) {
 		super();
-		this.id = id;
 		this.tema = tema;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		this.podeHoje = podeHoje;
 	}
 
 	public String getTema() {
@@ -31,8 +23,18 @@ public class Grupo {
 		this.tema = tema;
 	}
 	
+	
+	
+	public boolean isPodeHoje() {
+		return podeHoje;
+	}
+
+	public void setPodeHoje(boolean podeHoje) {
+		this.podeHoje = podeHoje;
+	}
+
 	@Override
 	public String toString() {
-		return "Tema: "+tema;
+		return tema;
 	}
 }

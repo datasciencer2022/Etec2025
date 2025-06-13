@@ -27,14 +27,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<style>
-		.conteudo{
-			display: flex; 
-			flex-direction: column; 
-			align-items: center; 
-			justify-content: center;
-		}
-	</style>
+<link rel="stylesheet" type="text/css" href="css/style.css"> 
 </head>
 <body>
 	<div class="conteudo">
@@ -53,7 +46,15 @@
 			<%for (int chave: keys){%>	
 				<tr>
 					<td align="center"><%= chave %></td>
-					<td align="center"><%= solucao.get(chave) %></td>
+					<td align="center">
+						<%if (solucao.get(chave) <= 2) {%>
+							<p class="vermelho">
+						<%} else { %>
+							<p class="verde">
+						<%} %>
+							<%= solucao.get(chave) %>
+						</p>
+					</td>
 				</tr>
 			<%
 			}

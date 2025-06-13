@@ -41,13 +41,13 @@ public class Caixa extends HttpServlet {
 				request.getParameter("valor"));
 		
 		Map<Integer, Integer> mapa = new HashMap<Integer, Integer>();
-		mapa.put(1, 3);
-		mapa.put(2, 4);
-		mapa.put(5, 4);
-		mapa.put(10, 3);
-		mapa.put(20, 4);
-		mapa.put(50, 3);
-		mapa.put(100, 2);
+		mapa.put(1, 13);
+		mapa.put(2, 14);
+		mapa.put(5, 14);
+		mapa.put(10, 13);
+		mapa.put(20, 14);
+		mapa.put(50, 13);
+		mapa.put(100, 12);
 		
 		List<Integer> listaNotas = new ArrayList<Integer>();
 		
