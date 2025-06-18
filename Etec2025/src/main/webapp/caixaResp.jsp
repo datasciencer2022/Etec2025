@@ -47,11 +47,7 @@
 				<tr>
 					<td align="center"><%= chave %></td>
 					<td align="center">
-						<%if (solucao.get(chave) <= 2) {%>
-							<p class="vermelho">
-						<%} else { %>
-							<p class="verde">
-						<%} %>
+						<p>
 							<%= solucao.get(chave) %>
 						</p>
 					</td>
